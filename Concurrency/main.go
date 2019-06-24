@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"time"
 )
 
 //Website Status Checker
@@ -22,8 +23,11 @@ func main() {
 		go statusChecker(link, c)
 	}
 
-	for {
-		go statusChecker(<-c, c)
+	for l := range c {
+		go func(l string) {
+			time.Sleep(time.Second)
+			statusChecker(l, c)
+		}(l)
 	}
 }
 
