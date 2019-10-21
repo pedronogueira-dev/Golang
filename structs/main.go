@@ -27,7 +27,7 @@ func main() {
 	p := person{
 		firstName: "Alex",
 		lastName:  "Anderson",
-		age:       30,
+		age:       30 ,
 	}
 	p.contactInfo = contactInfo{
 		email:       "example.mail@ex.com",
